@@ -6,7 +6,20 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Esturura Básica do C#");
+            Console.WriteLine("Calculadora Básica em C# feita com o Visual Studio 2022");
+            Somar ();
+        }
+        static void Somar ()
+        {
+            Console.WriteLine ("Digite o primeiro valor: ");
+            float primeiroValor = float.Parse (Console.ReadLine ());
+            
+            Console.WriteLine("Digite o segundo valor: ");
+            float segundoValor = float.Parse (Console.ReadLine());
+
+            float resultado = primeiroValor + segundoValor;
+
+            Console.WriteLine($"O resultado da operação é {resultado}");
         }
     }
 }
