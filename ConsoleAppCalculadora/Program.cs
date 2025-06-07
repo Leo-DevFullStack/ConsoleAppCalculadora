@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+namespace CalculadoraBasica
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Esturura Básica do C#");
+        }
+    }
+}
