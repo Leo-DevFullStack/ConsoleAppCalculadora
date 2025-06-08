@@ -7,7 +7,7 @@ namespace CalculadoraBasica
         static void Main(string[] args)
         {
             Console.WriteLine("Calculadora Básica em C# feita com o Visual Studio 2022");
-            Subdtrair();
+            Subtrair();
         }
         static void Somar()
         {
@@ -21,7 +21,7 @@ namespace CalculadoraBasica
 
             Console.WriteLine($"O resultado da operação é {resultado}");
         }
-        static void Subdtrair()
+        static void Subtrair()
         {
             Console.WriteLine("Digite o primeiro valor: ");
             float primeiroValor = float.Parse(Console.ReadLine());
