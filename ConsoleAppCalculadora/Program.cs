@@ -7,15 +7,15 @@ namespace CalculadoraBasica
         static void Main(string[] args)
         {
             Console.WriteLine("Calculadora Básica em C# feita com o Visual Studio 2022");
-            Subtrair();
+            Multiplicar();
         }
         static void Somar()
         {
             Console.WriteLine ("Digite o primeiro valor: ");
-            float primeiroValor = float.Parse (Console.ReadLine ());
+            float primeiroValor = float.Parse(Console.ReadLine ());
             
             Console.WriteLine("Digite o segundo valor: ");
-            float segundoValor = float.Parse (Console.ReadLine());
+            float segundoValor = float.Parse(Console.ReadLine());
 
             float resultado = primeiroValor + segundoValor;
 
@@ -30,6 +30,18 @@ namespace CalculadoraBasica
             float segundoValor = float.Parse(Console.ReadLine());
 
             float resultado = primeiroValor - segundoValor;
+
+            Console.WriteLine($"O resultado da operação é {resultado}");
+        }
+        static void Multiplicar()
+        {
+            Console.WriteLine("Digite o primeiro valor: ");
+            float primeiroValor = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o segundo valor: ");
+            float segundoValor = float.Parse(Console.ReadLine());
+
+            float resultado = primeiroValor * segundoValor;
 
             Console.WriteLine($"O resultado da operação é {resultado}");
         }
