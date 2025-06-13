@@ -6,8 +6,12 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Calculadora Básica em C# feita com o Visual Studio 2022");
-            Modulo();
+            int menuOpcao = 0;
+
+            Console.WriteLine("Escolha uma operação matemática e digite dois valores");
+
+            Console.WriteLine("Opções: \n 1º Somar \n 2º Subtrair \n 3º Dividir \n 4º Multiplicar \n 5º Resto da divisão (módulo) \n 6° Sair da Calculadora Básica C#");
+
         }
         static void Somar()
         {
