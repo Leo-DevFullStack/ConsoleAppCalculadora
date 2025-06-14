@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace CalculadoraBasica
 {
@@ -6,24 +8,31 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
+            Menu();
+        }
+        static void Menu()
+        {
+            Console.Clear();
+            
             Console.WriteLine("Escolha uma operação matemática e digite dois valores");
 
             Console.WriteLine("Opções: \n1º Somar \n2º Subtrair \n3º Dividir \n4º Multiplicar \n5º Resto da divisão (módulo) \n6° Sair da Calculadora Básica C#");
-            
+
             short menuOpcao = short.Parse(Console.ReadLine());
 
-            switch(menuOpcao)
+            switch (menuOpcao)
             {
                 case 1: Somar(); break;
                 case 2: Subtrair(); break;
                 case 3: Dividir(); break;
                 case 4: Multiplicar(); break;
                 case 5: Modulo(); break;
-                case 6: Console.WriteLine("Saindo da Aplicação! \nSee ya ^^"); break;
-                default: Console.WriteLine("Opção invalida");
-                break;
+                case 6: 
+                    Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
+                    System.Environment.Exit(0); 
+                    break;
+                default: Menu(); break;
             }
-
         }
         static void Somar()
         {
