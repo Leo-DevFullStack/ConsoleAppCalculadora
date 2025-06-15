@@ -7,7 +7,7 @@ namespace CalculadoraBasica
     class Program
     {
         static void Main(string[] args)
-        {      
+        {
             Menu();
         }
         static void Menu()
@@ -25,27 +25,21 @@ namespace CalculadoraBasica
                 case 3: Dividir(); break;
                 case 4: Multiplicar(); break;
                 case 5: Modulo(); break;
-                case 6:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
-                        System.Environment.Exit(0);
-                    }
-                    break;
+                case 6: Sair();  break;
                 default: Menu(); break;
             }
         }
         static void Somar()
         {
-            Console.WriteLine ("Digite o primeiro valor: ");
-            float primeiroValor = float.Parse(Console.ReadLine ());
+            Console.WriteLine("Digite o primeiro valor: ");
+            float primeiroValor = float.Parse(Console.ReadLine());
             Console.WriteLine("Digite o segundo valor: ");
             float segundoValor = float.Parse(Console.ReadLine());
-            
+
             float resultado = primeiroValor + segundoValor;
-            
+
             Console.Clear();
-            Console.WriteLine($"O resultado da operação é {resultado}");
+            Console.WriteLine($"O resultado da soma de {primeiroValor} + {segundoValor} é: {resultado}");
             Console.ReadKey();
             Menu();
         }
@@ -59,7 +53,7 @@ namespace CalculadoraBasica
             float resultado = primeiroValor - segundoValor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado da operação é {resultado}");
+            Console.WriteLine($"O resultado da subtração de {primeiroValor} - {segundoValor} é: {resultado}");
             Console.ReadKey();
 
             Menu();
@@ -74,7 +68,7 @@ namespace CalculadoraBasica
             float resultado = primeiroValor * segundoValor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado da operação é {resultado}");
+            Console.WriteLine($"O resultado da multipliacação de {primeiroValor} x {segundoValor} é: {resultado}");
             Console.ReadKey();
 
             Menu();
@@ -89,7 +83,7 @@ namespace CalculadoraBasica
             float resultado = primeiroValor / segundoValor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado da operação é {resultado}");
+            Console.WriteLine($"O resultado da divisão de {primeiroValor} / {segundoValor} é: {resultado}");
             Console.ReadKey();
 
             Menu();
@@ -104,10 +98,16 @@ namespace CalculadoraBasica
             float resultado = primeiroValor % segundoValor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado da operação é {resultado}");
+            Console.WriteLine($"O resultado do resto da divisão de {primeiroValor} por {segundoValor} é: {resultado}");
             Console.ReadKey();
 
             Menu();
+        }
+        static void Sair() 
+        {
+            Console.Clear();
+            Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
+            System.Environment.Exit(0);
         }
     }
 }
