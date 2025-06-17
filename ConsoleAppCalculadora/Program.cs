@@ -14,7 +14,7 @@ namespace CalculadoraBasica
         {
             Console.Clear();
             Console.WriteLine("Escolha uma operação matemática e digite dois valores!");
-            Console.WriteLine("Opções: \n1º Somar \n2º Subtrair \n3º Dividir \n4º Multiplicar \n5º Resto da divisão (módulo) \n6° Sair da Calculadora Básica C#");
+            Console.WriteLine("Opções: \n1º Somar \n2º Subtrair \n3º Dividir \n4º Multiplicar \n5º Raiz Quadrada \n6º Resto da Divisão (Módulo) \n7° Sair da Calculadora Básica C#");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
@@ -24,8 +24,9 @@ namespace CalculadoraBasica
                 case 2: Subtrair(); break;
                 case 3: Dividir(); break;
                 case 4: Multiplicar(); break;
-                case 5: Modulo(); break;
-                case 6: Sair();  break;
+                case 5: RaizQuadrada(); break;
+                case 6: Modulo(); break;
+                case 7: Sair();  break;
                 default: ValidarMenuOpcao(); break;
             }
         }
@@ -84,6 +85,20 @@ namespace CalculadoraBasica
 
             Console.Clear();
             Console.WriteLine($"O resultado da divisão de {primeiroValor} / {segundoValor} é: {resultado}");
+            Console.ReadKey();
+
+            Menu();
+        }
+        static void RaizQuadrada()
+        {
+            Console.WriteLine("Digite um número positivo para verificar sua raiz quadrada: ");
+            
+            float numero = float.Parse(Console.ReadLine());
+
+            string resultado = numero < 0 ? "NaN \"Not-A-Number\" - Não existe raiz quadrada de número negativo" : Convert.ToString(Math.Sqrt(numero));
+
+            Console.Clear();
+            Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
             Console.ReadKey();
 
             Menu();
