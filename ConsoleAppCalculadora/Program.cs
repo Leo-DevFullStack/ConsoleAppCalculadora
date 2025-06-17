@@ -26,7 +26,7 @@ namespace CalculadoraBasica
                 case 4: Multiplicar(); break;
                 case 5: Modulo(); break;
                 case 6: Sair();  break;
-                default: Menu(); break;
+                default: ValidarMenuOpcao(); break;
             }
         }
         static void Somar()
@@ -108,6 +108,12 @@ namespace CalculadoraBasica
             Console.Clear();
             Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
             System.Environment.Exit(0);
+        }
+        static void ValidarMenuOpcao()
+        {
+            Console.WriteLine("\n *** ATENÇÃO ***");
+            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
+            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
         }
     }
 }
