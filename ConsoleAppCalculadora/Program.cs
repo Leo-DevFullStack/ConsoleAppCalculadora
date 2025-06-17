@@ -14,23 +14,37 @@ namespace CalculadoraBasica
         {
             Console.Clear();
             Console.WriteLine("Escolha uma operação matemática e digite dois valores!");
-            Console.WriteLine("Opções: \n1º Somar \n2º Subtrair \n3º Dividir \n4º Multiplicar \n5º Raiz Quadrada \n6º Resto da Divisão (Módulo) \n7° Sair da Calculadora Básica C#");
+            Console.WriteLine("0 - Sair da Calculadora");
+            Console.WriteLine("1 - Adição");
+            Console.WriteLine("2 - Subtração");
+            Console.WriteLine("3 - Multiplicação");
+            Console.WriteLine("4 - Divisao");
+            Console.WriteLine("5 - Resto da Divisao (Módulo)");
+            Console.WriteLine("6 - Potência");
+            Console.WriteLine("7 - Raiz Quadrada");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
             switch (menuOpcao)
             {
-                case 1: Somar(); break;
-                case 2: Subtrair(); break;
-                case 3: Dividir(); break;
-                case 4: Multiplicar(); break;
-                case 5: RaizQuadrada(); break;
-                case 6: Modulo(); break;
-                case 7: Sair();  break;
+                case 1: Adicao(); break;
+                case 2: Subtracao(); break;
+                case 3: Multiplicacao(); break;
+                case 4: Divisao(); break;
+                case 5: Modulo(); break;
+                case 6: Potencia(); break;
+                case 7: RaizQuadrada(); break;
+                case 0: Sair();  break;
                 default: ValidarMenuOpcao(); break;
             }
         }
-        static void Somar()
+        static void ValidarMenuOpcao()
+        {
+            Console.WriteLine("\n *** ATENÇÃO ***");
+            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
+            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
+        }
+        static void Adicao()
         {
             Console.WriteLine("Digite o primeiro valor: ");
             float primeiroValor = float.Parse(Console.ReadLine());
@@ -44,7 +58,7 @@ namespace CalculadoraBasica
             Console.ReadKey();
             Menu();
         }
-        static void Subtrair()
+        static void Subtracao()
         {
             Console.WriteLine("Digite o primeiro valor: ");
             float primeiroValor = float.Parse(Console.ReadLine());
@@ -59,7 +73,7 @@ namespace CalculadoraBasica
 
             Menu();
         }
-        static void Multiplicar()
+        static void Multiplicacao()
         {
             Console.WriteLine("Digite o primeiro valor: ");
             float primeiroValor = float.Parse(Console.ReadLine());
@@ -74,7 +88,7 @@ namespace CalculadoraBasica
 
             Menu();
         }
-        static void Dividir()
+        static void Divisao()
         {
             Console.WriteLine("Digite o primeiro valor: ");
             float primeiroValor = float.Parse(Console.ReadLine());
@@ -85,20 +99,6 @@ namespace CalculadoraBasica
 
             Console.Clear();
             Console.WriteLine($"O resultado da divisão de {primeiroValor} / {segundoValor} é: {resultado}");
-            Console.ReadKey();
-
-            Menu();
-        }
-        static void RaizQuadrada()
-        {
-            Console.WriteLine("Digite um número positivo para verificar sua raiz quadrada: ");
-            
-            float numero = float.Parse(Console.ReadLine());
-
-            string resultado = numero < 0 ? "NaN \"Not-A-Number\" - Não existe raiz quadrada de número negativo" : Convert.ToString(Math.Sqrt(numero));
-
-            Console.Clear();
-            Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
             Console.ReadKey();
 
             Menu();
@@ -118,17 +118,40 @@ namespace CalculadoraBasica
 
             Menu();
         }
+        static void Potencia()
+        {
+            Console.WriteLine("Digite o valor base: ");
+            double valorBase = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o expoente: ");
+            double expoente = double.Parse(Console.ReadLine());
+
+            double resultado = Math.Pow(valorBase, expoente);
+
+            Console.Clear();
+            Console.WriteLine($"O resultado da exponenciação de {valorBase} ^ {expoente} é: {resultado}");
+            Console.ReadKey();
+
+            Menu();
+        }
+        static void RaizQuadrada()
+        {
+            Console.WriteLine("Digite um número positivo para verificar sua raiz quadrada: ");
+            
+            float numero = float.Parse(Console.ReadLine());
+
+            string resultado = numero < 0 ? "NaN \"Not-A-Number\" - Não existe raiz quadrada de número negativo" : Convert.ToString(Math.Sqrt(numero));
+
+            Console.Clear();
+            Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
+            Console.ReadKey();
+
+            Menu();
+        }
         static void Sair() 
         {
             Console.Clear();
             Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
             System.Environment.Exit(0);
-        }
-        static void ValidarMenuOpcao()
-        {
-            Console.WriteLine("\n *** ATENÇÃO ***");
-            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
-            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
         }
     }
 }
