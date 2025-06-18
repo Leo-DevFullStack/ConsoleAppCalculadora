@@ -20,7 +20,7 @@ namespace CalculadoraBasica
             Console.WriteLine("3 - Multiplicação");
             Console.WriteLine("4 - Divisao");
             Console.WriteLine("5 - Resto da Divisao (Módulo)");
-            Console.WriteLine("6 - Potência");
+            Console.WriteLine("6 - Potenciação");
             Console.WriteLine("7 - Raiz Quadrada");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
@@ -32,7 +32,7 @@ namespace CalculadoraBasica
                 case 3: Multiplicacao(); break;
                 case 4: Divisao(); break;
                 case 5: Modulo(); break;
-                case 6: Potencia(); break;
+                case 6: Potenciacao(); break;
                 case 7: RaizQuadrada(); break;
                 case 0: Sair();  break;
                 default: ValidarMenuOpcao(); break;
@@ -90,15 +90,15 @@ namespace CalculadoraBasica
         }
         static void Divisao()
         {
-            Console.WriteLine("Digite o primeiro valor: ");
-            float primeiroValor = float.Parse(Console.ReadLine());
-            Console.WriteLine("Digite o segundo valor: ");
-            float segundoValor = float.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o dividendo: ");
+            float dividendo = float.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o divisor: ");
+            float divisor = float.Parse(Console.ReadLine());
 
-            float resultado = primeiroValor / segundoValor;
+            float quociente = dividendo / divisor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado da divisão de {primeiroValor} / {segundoValor} é: {resultado}");
+            Console.WriteLine($"O quociente da divisão de {dividendo} / {divisor} é: {quociente}");
             Console.ReadKey();
 
             Menu();
@@ -118,7 +118,7 @@ namespace CalculadoraBasica
 
             Menu();
         }
-        static void Potencia()
+        static void Potenciacao()
         {
             Console.WriteLine("Digite o valor base: ");
             double valorBase = double.Parse(Console.ReadLine());
