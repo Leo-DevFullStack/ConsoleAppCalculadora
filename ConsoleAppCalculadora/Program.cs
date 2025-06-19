@@ -22,6 +22,7 @@ namespace CalculadoraBasica
             Console.WriteLine("5 - Resto da Divisao (Módulo)");
             Console.WriteLine("6 - Potenciação");
             Console.WriteLine("7 - Raiz Quadrada");
+            Console.WriteLine("8 - Equação de 1º Grau");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
@@ -34,6 +35,7 @@ namespace CalculadoraBasica
                 case 5: Modulo(); break;
                 case 6: Potenciacao(); break;
                 case 7: RaizQuadrada(); break;
+                case 8: EquacaoPrimeiroGrau(); break;
                 case 0: Sair();  break;
                 default: ValidarMenuOpcao(); break;
             }
@@ -146,6 +148,44 @@ namespace CalculadoraBasica
             Console.ReadKey();
 
             Menu();
+        }
+        static void EquacaoPrimeiroGrau()
+        {
+            Console.Write("Digite o valor de a: ");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor de b: ");
+            double b = double.Parse(Console.ReadLine());
+
+            if (a == 0)
+            {
+                if (b == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("A equação possui infinitas soluções.");
+                    Console.ReadKey();
+
+                    Menu();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("A equação não possui solução.");
+                    Console.ReadKey();
+
+                    Menu();
+                }
+            }
+            else
+            {
+                double x = -b / a;
+
+                Console.Clear();
+                Console.WriteLine("O valor de x é: " + x);
+                Console.ReadKey();
+
+                Menu();
+            }
         }
         static void Sair() 
         {
