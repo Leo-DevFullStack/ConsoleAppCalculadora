@@ -23,6 +23,7 @@ namespace CalculadoraBasica
             Console.WriteLine("6 - Potenciação");
             Console.WriteLine("7 - Raiz Quadrada");
             Console.WriteLine("8 - Equação de 1º Grau");
+            Console.WriteLine("9 - Equação de 2º Grau");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
@@ -36,6 +37,7 @@ namespace CalculadoraBasica
                 case 6: Potenciacao(); break;
                 case 7: RaizQuadrada(); break;
                 case 8: EquacaoPrimeiroGrau(); break;
+                case 9: EquacaoSegundoGrau(); break;
                 case 0: Sair();  break;
                 default: ValidarMenuOpcao(); break;
             }
@@ -153,7 +155,6 @@ namespace CalculadoraBasica
         {
             Console.Write("Digite o valor de a: ");
             double a = double.Parse(Console.ReadLine());
-
             Console.Write("Digite o valor de b: ");
             double b = double.Parse(Console.ReadLine());
 
@@ -181,7 +182,56 @@ namespace CalculadoraBasica
                 double x = -b / a;
 
                 Console.Clear();
-                Console.WriteLine("O valor de x é: " + x);
+                Console.WriteLine($"O valor de x é: {x}");
+                Console.ReadKey();
+
+                Menu();
+            }
+        }
+        static void EquacaoSegundoGrau()
+        {
+            Console.Write("Digite o valor de a: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Digite o valor de b: ");
+            double b = double.Parse(Console.ReadLine());     
+            Console.Write("Digite o valor de b: ");
+            double c = double.Parse(Console.ReadLine());
+
+            double delta = (b * b) - 4 * a * c;
+
+            if (a == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("O coeficiente \"a\" (que multiplica o termo x²) não pode ser zero. Se \"a\" fosse zero, a equação se reduziria a uma equação do primeiro grau (bx + c = 0)");
+                Console.ReadKey();
+
+                Menu();
+            }
+            else if (delta < 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Não existem raízes reais.");
+                Console.ReadKey();
+
+                Menu();
+            }
+            else if (delta == 0)
+            {
+                double x = -b / (2 * a);
+
+                Console.Clear();
+                Console.WriteLine($"Raiz única: x = {x}");
+                Console.ReadKey();
+
+                Menu();
+            }
+            else
+            {
+                double x1 = (-b + Math.Sqrt(delta)) / (2 * a);
+                double x2 = (-b - Math.Sqrt(delta)) / (2 * a);
+
+                Console.Clear();
+                Console.WriteLine($"Raízes: x1 = {x1}, x2 = {x2}");
                 Console.ReadKey();
 
                 Menu();
