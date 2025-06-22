@@ -1,6 +1,5 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
+using System.Numerics;
 
 namespace CalculadoraBasica
 {
@@ -13,7 +12,7 @@ namespace CalculadoraBasica
         static void Menu()
         {
             Console.Clear();
-            Console.WriteLine("Escolha uma operação matemática e digite dois valores!");
+            Console.WriteLine("Escolha uma operação matemática e digite o número referente a esta opção!");
             Console.WriteLine("0 - Sair da Calculadora");
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
@@ -22,13 +21,15 @@ namespace CalculadoraBasica
             Console.WriteLine("5 - Resto da Divisao (Módulo)");
             Console.WriteLine("6 - Potenciação");
             Console.WriteLine("7 - Raiz Quadrada");
-            Console.WriteLine("8 - Equação de 1º Grau");
-            Console.WriteLine("9 - Equação de 2º Grau");
+            Console.WriteLine("8 - Raiz Quadrada de número negativo");
+            Console.WriteLine("9 - Equação de 1º Grau");
+            Console.WriteLine("10 - Equação de 2º Grau");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
             switch (menuOpcao)
             {
+                case 0: Sair();  break;
                 case 1: Adicao(); break;
                 case 2: Subtracao(); break;
                 case 3: Multiplicacao(); break;
@@ -36,9 +37,9 @@ namespace CalculadoraBasica
                 case 5: Modulo(); break;
                 case 6: Potenciacao(); break;
                 case 7: RaizQuadrada(); break;
-                case 8: EquacaoPrimeiroGrau(); break;
-                case 9: EquacaoSegundoGrau(); break;
-                case 0: Sair();  break;
+                case 8: RaizQuadradaNegativa(); break;
+                case 9: EquacaoPrimeiroGrau(); break;
+                case 10: EquacaoSegundoGrau(); break;
                 default: ValidarMenuOpcao(); break;
             }
         }
@@ -143,13 +144,38 @@ namespace CalculadoraBasica
             
             float numero = float.Parse(Console.ReadLine());
 
-            string resultado = numero < 0 ? "NaN \"Not-A-Number\" - Não existe raiz quadrada de número negativo" : Convert.ToString(Math.Sqrt(numero));
+            string resultado = numero < 0 ? "NaN \"Not-A-Number\"" : Convert.ToString(Math.Sqrt(numero));
 
             Console.Clear();
             Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
             Console.ReadKey();
 
             Menu();
+        }
+        static void RaizQuadradaNegativa()
+        {
+            Console.WriteLine("Digite um número negativo para verificar sua raiz quadrada: ");
+
+            double numeroNegativo = double.Parse(Console.ReadLine());
+
+            if (numeroNegativo < 0)
+            {
+                Complex raizComplexa = Complex.Sqrt(numeroNegativo);
+
+                Console.Clear();
+                Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa}");
+                Console.ReadKey();
+
+                Menu();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("O número digitado deve ser negativo para esse tipo de operação!");
+                Console.ReadKey();
+
+                RaizQuadradaNegativa();
+            }
         }
         static void EquacaoPrimeiroGrau()
         {
