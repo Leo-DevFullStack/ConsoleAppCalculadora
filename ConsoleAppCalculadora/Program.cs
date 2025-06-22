@@ -23,7 +23,7 @@ namespace CalculadoraBasica
             Console.WriteLine("7 - Raiz Quadrada");
             Console.WriteLine("8 - Raiz Quadrada de número negativo");
             Console.WriteLine("9 - Equação de 1º Grau");
-            Console.WriteLine("10 - Equação de 2º Grau");
+            Console.WriteLine("10 - Equação de 2º Grau / Fórmula de Bhaskara");
             Console.Write("Operação: ");
             short menuOpcao = short.Parse(Console.ReadLine());
 
@@ -43,11 +43,11 @@ namespace CalculadoraBasica
                 default: ValidarMenuOpcao(); break;
             }
         }
-        static void ValidarMenuOpcao()
+        static void Sair() 
         {
-            Console.WriteLine("\n *** ATENÇÃO ***");
-            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
-            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
+            Console.Clear();
+            Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
+            System.Environment.Exit(0);
         }
         static void Adicao()
         {
@@ -110,15 +110,15 @@ namespace CalculadoraBasica
         }
         static void Modulo()
         {
-            Console.WriteLine("Digite o primeiro valor: ");
-            float primeiroValor = float.Parse(Console.ReadLine());
-            Console.WriteLine("Digite o segundo valor: ");
-            float segundoValor = float.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o dividendo: ");
+            float dividendo = float.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o divisor: ");
+            float divisor = float.Parse(Console.ReadLine());
 
-            float resultado = primeiroValor % segundoValor;
+            float resto = dividendo % divisor;
 
             Console.Clear();
-            Console.WriteLine($"O resultado do resto da divisão de {primeiroValor} por {segundoValor} é: {resultado}");
+            Console.WriteLine($"O resultado do resto da divisão de {dividendo} por {divisor} é: {resto}");
             Console.ReadKey();
 
             Menu();
@@ -144,7 +144,7 @@ namespace CalculadoraBasica
             
             float numero = float.Parse(Console.ReadLine());
 
-            string resultado = numero < 0 ? "NaN \"Not-A-Number\"" : Convert.ToString(Math.Sqrt(numero));
+            string resultado = numero < 0 ? "NaN \"Not-A-Number\" \nUse a operação para Raiz Quadrada de número negativo" : Convert.ToString(Math.Sqrt(numero));
 
             Console.Clear();
             Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
@@ -163,7 +163,7 @@ namespace CalculadoraBasica
                 Complex raizComplexa = Complex.Sqrt(numeroNegativo);
 
                 Console.Clear();
-                Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa}");
+                Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa}, número complexo com parte real e parte imaginária");
                 Console.ReadKey();
 
                 Menu();
@@ -263,11 +263,11 @@ namespace CalculadoraBasica
                 Menu();
             }
         }
-        static void Sair() 
+        static void ValidarMenuOpcao()
         {
-            Console.Clear();
-            Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
-            System.Environment.Exit(0);
+            Console.WriteLine("\n *** ATENÇÃO ***");
+            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
+            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
         }
     }
 }
