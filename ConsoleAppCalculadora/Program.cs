@@ -46,7 +46,7 @@ namespace CalculadoraBasica
         static void Sair() 
         {
             Console.Clear();
-            Console.WriteLine("Saindo da Aplicação! \nSee ya ^^");
+            Console.WriteLine("Saindo da Aplicação!");
             System.Environment.Exit(0);
         }
         static void Adicao()
@@ -163,7 +163,7 @@ namespace CalculadoraBasica
                 Complex raizComplexa = Complex.Sqrt(numeroNegativo);
 
                 Console.Clear();
-                Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa}, número complexo com parte real e parte imaginária");
+                Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa} número complexo com parte real e parte imaginária");
                 Console.ReadKey();
 
                 Menu();
