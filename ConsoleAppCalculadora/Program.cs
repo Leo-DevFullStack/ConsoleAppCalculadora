@@ -9,7 +9,7 @@ namespace CalculadoraBasica
         {
             Menu();
         }
-        static void Menu()
+        static void MenuCalculadora()
         {
             Console.Clear();
             Console.WriteLine("Escolha uma operação matemática e digite o número referente a esta opção!");
@@ -25,9 +25,9 @@ namespace CalculadoraBasica
             Console.WriteLine("9 - Equação de 1º Grau");
             Console.WriteLine("10 - Equação de 2º Grau / Fórmula de Bhaskara");
             Console.Write("Operação: ");
-            short menuOpcao = short.Parse(Console.ReadLine());
+            short menuCalculadoraOpcao = short.Parse(Console.ReadLine());
 
-            switch (menuOpcao)
+            switch (menuCalculadoraOpcao)
             {
                 case 0: Sair();  break;
                 case 1: Adicao(); break;
@@ -40,7 +40,7 @@ namespace CalculadoraBasica
                 case 8: RaizQuadradaNegativa(); break;
                 case 9: EquacaoPrimeiroGrau(); break;
                 case 10: EquacaoSegundoGrau(); break;
-                default: ValidarMenuOpcao(); break;
+                default: ValidarMenuCalculadoraOpcao(); break;
             }
         }
         static void Sair() 
@@ -61,7 +61,7 @@ namespace CalculadoraBasica
             Console.Clear();
             Console.WriteLine($"O resultado da soma de {primeiroValor} + {segundoValor} é: {resultado}");
             Console.ReadKey();
-            Menu();
+            MenuCalculadora();
         }
         static void Subtracao()
         {
@@ -76,7 +76,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"O resultado da subtração de {primeiroValor} - {segundoValor} é: {resultado}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void Multiplicacao()
         {
@@ -91,7 +91,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"O resultado da multipliacação de {primeiroValor} x {segundoValor} é: {resultado}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void Divisao()
         {
@@ -106,7 +106,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"O quociente da divisão de {dividendo} / {divisor} é: {quociente}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void Modulo()
         {
@@ -121,7 +121,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"O resultado do resto da divisão de {dividendo} por {divisor} é: {resto}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void Potenciacao()
         {
@@ -136,7 +136,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"O resultado da exponenciação de {valorBase} ^ {expoente} é: {resultado}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void RaizQuadrada()
         {
@@ -150,7 +150,7 @@ namespace CalculadoraBasica
             Console.WriteLine($"A Raiz Quadrada de {numero} é: {resultado}");
             Console.ReadKey();
 
-            Menu();
+            MenuCalculadora();
         }
         static void RaizQuadradaNegativa()
         {
@@ -166,7 +166,7 @@ namespace CalculadoraBasica
                 Console.WriteLine($"A raiz quadrada de {numeroNegativo} é: {raizComplexa} número complexo com parte real e parte imaginária");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
             else
             {
@@ -192,7 +192,7 @@ namespace CalculadoraBasica
                     Console.WriteLine("A equação possui infinitas soluções.");
                     Console.ReadKey();
 
-                    Menu();
+                    MenuCalculadora();
                 }
                 else
                 {
@@ -200,7 +200,7 @@ namespace CalculadoraBasica
                     Console.WriteLine("A equação não possui solução.");
                     Console.ReadKey();
 
-                    Menu();
+                    MenuCalculadora();
                 }
             }
             else
@@ -211,7 +211,7 @@ namespace CalculadoraBasica
                 Console.WriteLine($"O valor de x é: {x}");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
         }
         static void EquacaoSegundoGrau()
@@ -231,7 +231,7 @@ namespace CalculadoraBasica
                 Console.WriteLine("O coeficiente \"a\" (que multiplica o termo x²) não pode ser zero. Se \"a\" fosse zero, a equação se reduziria a uma equação do primeiro grau (bx + c = 0)");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
             else if (delta < 0)
             {
@@ -239,7 +239,7 @@ namespace CalculadoraBasica
                 Console.WriteLine("Não existem raízes reais.");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
             else if (delta == 0)
             {
@@ -249,7 +249,7 @@ namespace CalculadoraBasica
                 Console.WriteLine($"Raiz única: x = {x}");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
             else
             {
@@ -260,10 +260,10 @@ namespace CalculadoraBasica
                 Console.WriteLine($"Raízes: x1 = {x1}, x2 = {x2}");
                 Console.ReadKey();
 
-                Menu();
+                MenuCalculadora();
             }
         }
-        static void ValidarMenuOpcao()
+        static void ValidarMenuCalculadoraOpcao()
         {
             Console.WriteLine("\n *** ATENÇÃO ***");
             Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
