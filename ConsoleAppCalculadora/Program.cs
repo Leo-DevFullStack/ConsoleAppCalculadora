@@ -7,13 +7,34 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
-            Menu();
+            MenuPrincipal();
+        }
+
+        /*
+        Métodos dos Menus
+        */
+        static void MenuPrincipal()
+        {
+            Console.WriteLine("Bem-vindo");
+            Console.WriteLine("Escolha uma opção no menu abaixo");
+
+            Console.WriteLine("0 - Sair do programa");
+            Console.WriteLine("1 - Calculadora");
+            Console.WriteLine("2 - Cronômetro");
+            short menuPrincipalOpcao = short.Parse(Console.ReadLine());
+
+            switch (menuPrincipalOpcao)
+            {
+                case 0: Sair(); break;
+                case 1: MenuCalculadora(); break;
+                //case 2: menuCronometro(); break;
+                default: ValidarMenu(); break;
+            }
         }
         static void MenuCalculadora()
         {
             Console.Clear();
             Console.WriteLine("Escolha uma operação matemática e digite o número referente a esta opção!");
-            Console.WriteLine("0 - Sair da Calculadora");
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Multiplicação");
@@ -21,15 +42,16 @@ namespace CalculadoraBasica
             Console.WriteLine("5 - Resto da Divisao (Módulo)");
             Console.WriteLine("6 - Potenciação");
             Console.WriteLine("7 - Raiz Quadrada");
-            Console.WriteLine("8 - Raiz Quadrada de número negativo");
+            Console.WriteLine("8 - Raiz Quadrada de Número Negativo");
             Console.WriteLine("9 - Equação de 1º Grau");
             Console.WriteLine("10 - Equação de 2º Grau / Fórmula de Bhaskara");
+            Console.WriteLine("11 - Voltar ao Menu Principal");
+            Console.WriteLine("12 - Sair do programa");
             Console.Write("Operação: ");
             short menuCalculadoraOpcao = short.Parse(Console.ReadLine());
 
             switch (menuCalculadoraOpcao)
             {
-                case 0: Sair();  break;
                 case 1: Adicao(); break;
                 case 2: Subtracao(); break;
                 case 3: Multiplicacao(); break;
@@ -40,15 +62,31 @@ namespace CalculadoraBasica
                 case 8: RaizQuadradaNegativa(); break;
                 case 9: EquacaoPrimeiroGrau(); break;
                 case 10: EquacaoSegundoGrau(); break;
-                default: ValidarMenuCalculadoraOpcao(); break;
+                case 11: MenuPrincipal();  break;
+                case 12: Sair();  break;
+                default: ValidarMenu(); break;
             }
         }
+        /*static void MenuCronometro()
+        {
+
+        }*/
         static void Sair() 
         {
             Console.Clear();
             Console.WriteLine("Saindo da Aplicação!");
             System.Environment.Exit(0);
         }
+        static void ValidarMenu()
+        {
+            Console.WriteLine("\n *** ATENÇÃO ***");
+            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
+            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
+        }
+
+        /*
+        Métodos da Calculadora
+        */
         static void Adicao()
         {
             Console.WriteLine("Digite o primeiro valor: ");
@@ -263,11 +301,9 @@ namespace CalculadoraBasica
                 MenuCalculadora();
             }
         }
-        static void ValidarMenuCalculadoraOpcao()
-        {
-            Console.WriteLine("\n *** ATENÇÃO ***");
-            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
-            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
-        }
+
+        /*
+        Métodos do Cronometro
+        */
     }
 }
