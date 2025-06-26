@@ -89,7 +89,7 @@ namespace CalculadoraBasica
 
             switch (menuCronometroOpcao)
             {
-                //case 1: Contagem(); break;
+                case 1: Contagem(); break;
                 //case 2: ContagemRegressiva(); break;
                 case 3: MenuPrincipal(); break;
                 case 4: Sair(); break;
@@ -347,11 +347,26 @@ namespace CalculadoraBasica
 
             Console.WriteLine("Quanto Tempo Deseja Cronometrar?");
         }
-        /*static void Contagem()
+        static void Contagem()
         {
             LegendaCronometro();
+
+            string legendaFormato = Console.ReadLine().ToLower();
+            char medidaTempo = char.Parse(legendaFormato.Substring(legendaFormato.Length -1, 1));
+            int quantidadeTempo = int.Parse(legendaFormato.Substring(0, legendaFormato.Length -1));
+
+            int multiplicador = 1;
+
+            if (medidaTempo == 'm')
+            {
+                multiplicador = 60;
+            }
+
+            Console.WriteLine($"medidaTempo: {medidaTempo}");
+            Console.WriteLine($"quantidadeTempo: {quantidadeTempo}");
+            Console.WriteLine($"multiplicador: {multiplicador}");
         }
-        static void ContagemRegressiva()
+        /*static void ContagemRegressiva()
         {
             LegendaCronometro();
         }*/
