@@ -15,26 +15,31 @@ namespace CalculadoraBasica
         */
         static void MenuPrincipal()
         {
-            Console.WriteLine("Bem-vindo");
-            Console.WriteLine("Escolha uma opção no menu abaixo");
+            Console.Clear();
+            
+            Console.WriteLine("----------> Menu Principal <----------\n");
 
-            Console.WriteLine("0 - Sair do programa");
+            Console.WriteLine("Digite uma Opção!");
             Console.WriteLine("1 - Calculadora");
             Console.WriteLine("2 - Cronômetro");
+            Console.WriteLine("3 - Sair do programa");
             short menuPrincipalOpcao = short.Parse(Console.ReadLine());
 
             switch (menuPrincipalOpcao)
             {
-                case 0: Sair(); break;
                 case 1: MenuCalculadora(); break;
-                //case 2: menuCronometro(); break;
+                case 2: MenuCronometro(); break;
+                case 3: Sair(); break;
                 default: ValidarMenu(); break;
             }
         }
         static void MenuCalculadora()
         {
             Console.Clear();
-            Console.WriteLine("Escolha uma operação matemática e digite o número referente a esta opção!");
+
+            Console.WriteLine("----------> Menu Calculadora <----------\n");
+
+            Console.WriteLine("Digite uma Opção!");
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Multiplicação");
@@ -67,21 +72,45 @@ namespace CalculadoraBasica
                 default: ValidarMenu(); break;
             }
         }
-        /*static void MenuCronometro()
+        static void MenuCronometro()
         {
+            Console.Clear();
 
-        }*/
+            Console.WriteLine("----------> Menu Cronômetro <----------\n");
+
+            Console.WriteLine("Digite uma Opção!");
+            Console.WriteLine("1 - Contagem");
+            Console.WriteLine("2 - Contagem Regressiva");
+            Console.WriteLine("3 - Voltar ao Menu Principal");
+            Console.WriteLine("4 - Sair do programa");
+            short menuCronometroOpcao = short.Parse(Console.ReadLine());
+
+            switch (menuCronometroOpcao)
+            {
+                //case 1: Contagem(); break;
+                //case 2: ContagemRegressiva(); break;
+                case 3: MenuPrincipal(); break;
+                case 4: Sair(); break;
+                default: ValidarMenu(); break;
+            }
+        }
         static void Sair() 
         {
             Console.Clear();
-            Console.WriteLine("Saindo da Aplicação!");
+            Console.WriteLine("----------> SAINDO DA APLICAÇÃO <----------");
             System.Environment.Exit(0);
         }
         static void ValidarMenu()
         {
-            Console.WriteLine("\n *** ATENÇÃO ***");
-            Console.WriteLine("\n- Ação Necessária: rodar o programa novamente!");
-            Console.WriteLine("- Erro: digite um número inteiro, referente a operação matemática que deseja realizar!");
+            Console.Clear();
+            Console.WriteLine("----------> ATENÇÃO <----------\n\n");
+            Console.WriteLine("Ação Necessária: rodar o programa novamente!\n");
+            Console.WriteLine("Erro: digite um número inteiro, referente a opção que deseja realizar!");
+            Console.WriteLine("\n\nErro - Finalizando o Programa");
+
+            Thread.Sleep(7000);
+            
+            Sair();
         }
 
         /*
@@ -305,5 +334,22 @@ namespace CalculadoraBasica
         /*
         Métodos do Cronometro
         */
+        static void LegendaCronometro()
+        {
+            Console.Clear();
+            Console.WriteLine("----------> LEGENDAS <----------\n");
+            Console.WriteLine("S = Segundo => 30s = 30 segundos");
+            Console.WriteLine("M = Minutos => 10m = 10 minutos\n");
+
+            Console.WriteLine("Quanto Tempo Deseja Cronometrar?");
+        }
+        /*static void Contagem()
+        {
+
+        }
+        static void ContagemRegressiva()
+        {
+
+        }*/
     }
 }
