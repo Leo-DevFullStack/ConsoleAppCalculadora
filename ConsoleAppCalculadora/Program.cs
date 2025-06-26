@@ -19,10 +19,11 @@ namespace CalculadoraBasica
             
             Console.WriteLine("----------> Menu Principal <----------\n");
 
-            Console.WriteLine("Digite uma Opção!");
+            Console.WriteLine("Digite uma Opção!\n");
             Console.WriteLine("1 - Calculadora");
             Console.WriteLine("2 - Cronômetro");
             Console.WriteLine("3 - Sair do programa");
+            Console.Write("\nOpção: ");
             short menuPrincipalOpcao = short.Parse(Console.ReadLine());
 
             switch (menuPrincipalOpcao)
@@ -39,7 +40,7 @@ namespace CalculadoraBasica
 
             Console.WriteLine("----------> Menu Calculadora <----------\n");
 
-            Console.WriteLine("Digite uma Opção!");
+            Console.WriteLine("Digite uma Opção!\n");
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Multiplicação");
@@ -52,7 +53,7 @@ namespace CalculadoraBasica
             Console.WriteLine("10 - Equação de 2º Grau / Fórmula de Bhaskara");
             Console.WriteLine("11 - Voltar ao Menu Principal");
             Console.WriteLine("12 - Sair do programa");
-            Console.Write("Operação: ");
+            Console.Write("\nOpção: ");
             short menuCalculadoraOpcao = short.Parse(Console.ReadLine());
 
             switch (menuCalculadoraOpcao)
@@ -78,11 +79,12 @@ namespace CalculadoraBasica
 
             Console.WriteLine("----------> Menu Cronômetro <----------\n");
 
-            Console.WriteLine("Digite uma Opção!");
+            Console.WriteLine("Digite uma Opção!\n");
             Console.WriteLine("1 - Contagem");
             Console.WriteLine("2 - Contagem Regressiva");
             Console.WriteLine("3 - Voltar ao Menu Principal");
             Console.WriteLine("4 - Sair do programa");
+            Console.Write("\nOpção: ");
             short menuCronometroOpcao = short.Parse(Console.ReadLine());
 
             switch (menuCronometroOpcao)
@@ -96,8 +98,10 @@ namespace CalculadoraBasica
         }
         static void Sair() 
         {
-            Console.Clear();
-            Console.WriteLine("----------> SAINDO DA APLICAÇÃO <----------");
+            Console.WriteLine("\n----------> SAINDO DA APLICAÇÃO <----------");
+
+            Thread.Sleep(3000);
+
             System.Environment.Exit(0);
         }
         static void ValidarMenu()
@@ -345,11 +349,11 @@ namespace CalculadoraBasica
         }
         /*static void Contagem()
         {
-
+            LegendaCronometro();
         }
         static void ContagemRegressiva()
         {
-
+            LegendaCronometro();
         }*/
     }
 }
