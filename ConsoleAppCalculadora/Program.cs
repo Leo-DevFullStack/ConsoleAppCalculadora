@@ -116,7 +116,7 @@ namespace CalculadoraBasica
                 case 1: IniciarCronometro(true); break;
                 case 2: IniciarCronometro(false); break;
                 case 3: MenuPrincipal(); break;
-                case 4: Sair(); break;
+                case 0: Sair(); break;
                 default: ValidarMenu(); break;
             }
         }
@@ -399,6 +399,13 @@ namespace CalculadoraBasica
                 Thread.Sleep(1000);
             }
         }
+        static string FormatarTempo(int totalSegundos)
+        {
+            int minutos = totalSegundos / 60;
+            int segundos = totalSegundos % 60;
+            return $"{minutos:D2}:{segundos:D2}";
+        }
+
 
         /*
         Métodos Gerais
@@ -406,18 +413,15 @@ namespace CalculadoraBasica
         static void ValidarMenu()
         {
             Console.Clear();
-            Console.WriteLine("----------> ATENÇÃO <----------\n\n");
-            Console.WriteLine("Ação Necessária: rodar o programa novamente!\n");
-            Console.WriteLine("Erro: digite um número inteiro, referente a opção que deseja realizar!");
-            Console.WriteLine("\n\nErro - Finalizando o Programa");
+            Console.WriteLine("----------> ATENÇÃO <----------\n");
+            Console.WriteLine("Ação Necessária: rodar o programa novamente!");
+            Console.WriteLine("Erro ao digitar o número referente a opção do menu!\n");
 
-            Thread.Sleep(7000);
-            
             Sair();
         }
         static void Sair() 
         {
-            Console.WriteLine("\n----------> SAINDO DA APLICAÇÃO <----------");
+            Console.WriteLine("---------> FINALIZANDO <---------");
 
             Thread.Sleep(2000);
 
