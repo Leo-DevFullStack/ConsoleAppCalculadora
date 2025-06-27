@@ -381,6 +381,24 @@ namespace CalculadoraBasica
 
             MenuCronometro();
         }
+        static void ContagemProgressiva(int segundos)
+        {
+            for (int i = 1; i <= segundos; i++)
+            {
+                Console.Clear();
+                Console.WriteLine($"Contando: {FormatarTempo(i)}");
+                Thread.Sleep(1000);
+            }
+        }
+        static void ContagemRegressiva(int segundos)
+        {
+            for (int i = segundos; i >= 1; i--)
+            {
+                Console.Clear();
+                Console.WriteLine($"Contando: {FormatarTempo(i)}");
+                Thread.Sleep(1000);
+            }
+        }
 
         /*
         Métodos Gerais
