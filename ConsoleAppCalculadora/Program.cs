@@ -16,24 +16,32 @@ namespace CalculadoraBasica
         static void MenuPrincipal()
         {
             Console.Clear();
-            
+
             Console.WriteLine("----------> Menu Principal <----------\n");
 
             Console.WriteLine("Digite uma Opção!\n");
+
             Console.WriteLine("1 - Calculadora");
             Console.WriteLine("2 - Cronômetro");
-            Console.WriteLine("3 - Sair do programa");
+            Console.WriteLine("0 - Sair do programa");
+
             Console.Write("\nOpção: ");
-            short menuPrincipalOpcao = short.Parse(Console.ReadLine());
+
+            if (!short.TryParse(Console.ReadLine(), out short menuPrincipalOpcao))
+            {
+                ValidarMenu();
+                return;
+            }
 
             switch (menuPrincipalOpcao)
             {
                 case 1: MenuCalculadora(); break;
                 case 2: MenuCronometro(); break;
-                case 3: Sair(); break;
+                case 0: Sair(); break;
                 default: ValidarMenu(); break;
             }
         }
+
         static void MenuCalculadora()
         {
             Console.Clear();
@@ -41,6 +49,7 @@ namespace CalculadoraBasica
             Console.WriteLine("----------> Menu Calculadora <----------\n");
 
             Console.WriteLine("Digite uma Opção!\n");
+
             Console.WriteLine("1 - Adição");
             Console.WriteLine("2 - Subtração");
             Console.WriteLine("3 - Multiplicação");
@@ -52,9 +61,15 @@ namespace CalculadoraBasica
             Console.WriteLine("9 - Equação de 1º Grau");
             Console.WriteLine("10 - Equação de 2º Grau / Fórmula de Bhaskara");
             Console.WriteLine("11 - Voltar ao Menu Principal");
-            Console.WriteLine("12 - Sair do programa");
+            Console.WriteLine("0 - Sair do programa");
+
             Console.Write("\nOpção: ");
-            short menuCalculadoraOpcao = short.Parse(Console.ReadLine());
+
+            if (!short.TryParse(Console.ReadLine(), out short menuCalculadoraOpcao))
+            {
+                ValidarMenu();
+                return;
+            }
 
             switch (menuCalculadoraOpcao)
             {
@@ -68,11 +83,13 @@ namespace CalculadoraBasica
                 case 8: RaizQuadradaNegativa(); break;
                 case 9: EquacaoPrimeiroGrau(); break;
                 case 10: EquacaoSegundoGrau(); break;
-                case 11: MenuPrincipal();  break;
-                case 12: Sair();  break;
+                case 11: MenuPrincipal(); break;
+                case 0: Sair(); break;
                 default: ValidarMenu(); break;
             }
         }
+
+        // Aqui modifico para incluir o menu cronometro completo e organizado
         static void MenuCronometro()
         {
             Console.Clear();
@@ -80,41 +97,28 @@ namespace CalculadoraBasica
             Console.WriteLine("----------> Menu Cronômetro <----------\n");
 
             Console.WriteLine("Digite uma Opção!\n");
-            Console.WriteLine("1 - Contagem");
+
+            Console.WriteLine("1 - Contagem Progressiva");
             Console.WriteLine("2 - Contagem Regressiva");
             Console.WriteLine("3 - Voltar ao Menu Principal");
-            Console.WriteLine("4 - Sair do programa");
+            Console.WriteLine("0 - Sair do programa");
+
             Console.Write("\nOpção: ");
-            short menuCronometroOpcao = short.Parse(Console.ReadLine());
+
+            if (!short.TryParse(Console.ReadLine(), out short menuCronometroOpcao))
+            {
+                ValidarMenu();
+                return;
+            }
 
             switch (menuCronometroOpcao)
             {
-                case 1: Contagem(); break;
-                //case 2: ContagemRegressiva(); break;
+                case 1: IniciarCronometro(true); break;
+                case 2: IniciarCronometro(false); break;
                 case 3: MenuPrincipal(); break;
                 case 4: Sair(); break;
                 default: ValidarMenu(); break;
             }
-        }
-        static void Sair() 
-        {
-            Console.WriteLine("\n----------> SAINDO DA APLICAÇÃO <----------");
-
-            Thread.Sleep(3000);
-
-            System.Environment.Exit(0);
-        }
-        static void ValidarMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("----------> ATENÇÃO <----------\n\n");
-            Console.WriteLine("Ação Necessária: rodar o programa novamente!\n");
-            Console.WriteLine("Erro: digite um número inteiro, referente a opção que deseja realizar!");
-            Console.WriteLine("\n\nErro - Finalizando o Programa");
-
-            Thread.Sleep(7000);
-            
-            Sair();
         }
 
         /*
@@ -336,39 +340,32 @@ namespace CalculadoraBasica
         }
 
         /*
-        Métodos do Cronometro
+        Métodos do Cronômetro
         */
-        static void LegendaCronometro()
+
+
+        /*
+        Métodos Gerais
+        */
+        static void ValidarMenu()
         {
             Console.Clear();
-            Console.WriteLine("----------> LEGENDAS <----------\n");
-            Console.WriteLine("S = Segundo => 30s = 30 segundos");
-            Console.WriteLine("M = Minutos => 10m = 10 minutos\n");
+            Console.WriteLine("----------> ATENÇÃO <----------\n\n");
+            Console.WriteLine("Ação Necessária: rodar o programa novamente!\n");
+            Console.WriteLine("Erro: digite um número inteiro, referente a opção que deseja realizar!");
+            Console.WriteLine("\n\nErro - Finalizando o Programa");
 
-            Console.WriteLine("Quanto Tempo Deseja Cronometrar?");
+            Thread.Sleep(7000);
+            
+            Sair();
         }
-        static void Contagem()
+        static void Sair() 
         {
-            LegendaCronometro();
+            Console.WriteLine("\n----------> SAINDO DA APLICAÇÃO <----------");
 
-            string legendaFormato = Console.ReadLine().ToLower();
-            char medidaTempo = char.Parse(legendaFormato.Substring(legendaFormato.Length -1, 1));
-            int quantidadeTempo = int.Parse(legendaFormato.Substring(0, legendaFormato.Length -1));
+            Thread.Sleep(2000);
 
-            int multiplicador = 1;
-
-            if (medidaTempo == 'm')
-            {
-                multiplicador = 60;
-            }
-
-            Console.WriteLine($"medidaTempo: {medidaTempo}");
-            Console.WriteLine($"quantidadeTempo: {quantidadeTempo}");
-            Console.WriteLine($"multiplicador: {multiplicador}");
+            System.Environment.Exit(0);
         }
-        /*static void ContagemRegressiva()
-        {
-            LegendaCronometro();
-        }*/
     }
 }
