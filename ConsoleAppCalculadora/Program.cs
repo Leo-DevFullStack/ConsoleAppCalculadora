@@ -342,7 +342,45 @@ namespace CalculadoraBasica
         /*
         Métodos do Cronômetro
         */
+        static void IniciarCronometro(bool progressiva)
+        {
+            Console.Clear();
 
+            Console.WriteLine("Escolha a unidade de tempo:");
+            Console.WriteLine("1 - Segundos");
+            Console.WriteLine("2 - Minutos");
+            Console.Write("\nOpção: ");
+
+            if (!short.TryParse(Console.ReadLine(), out short unidadeOpcao) || (unidadeOpcao != 1 && unidadeOpcao != 2))
+            {
+                ValidarMenu();
+                return;
+            }
+
+            Console.Clear();
+            Console.Write("Digite a quantidade de tempo para o cronômetro: ");
+            if (!int.TryParse(Console.ReadLine(), out int quantidade) || quantidade <= 0)
+            {
+                ValidarMenu();
+                return;
+            }
+
+            int totalSegundos = (unidadeOpcao == 2) ? quantidade * 60 : quantidade;
+
+            Console.Clear();
+            Console.WriteLine("Iniciando cronômetro...");
+            Thread.Sleep(1000);
+
+            if (progressiva)
+                ContagemProgressiva(totalSegundos);
+            else
+                ContagemRegressiva(totalSegundos);
+
+            Console.WriteLine("Cronômetro finalizado! Pressione qualquer tecla para voltar ao menu.");
+            Console.ReadKey();
+
+            MenuCronometro();
+        }
 
         /*
         Métodos Gerais
